@@ -6,26 +6,32 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class KorisniciModel {
-    ObservableList<String> korisnici = FXCollections.observableArrayList();
-    SimpleObjectProperty<String> trenutni = new SimpleObjectProperty<>();
+    private ObservableList<Korisnik> korisnici = FXCollections.observableArrayList();
+    private SimpleObjectProperty<Korisnik> trenutni = new SimpleObjectProperty<>();
 
-    public ObservableList<String> getKorisnici() {
+    public void napuni() {
+        korisnici.add(new Korisnik("Dejan", "Popovic", "dpopovic1@etf.unsa.ba", "username", "lozinka"));
+        korisnici.add(new Korisnik("Djjn", "Pppp", "dpopovic2@etf.unsa.ba", "username2", "lozinka"));
+        trenutni.set(korisnici.get(0));
+    }
+
+    public ObservableList<Korisnik> getKorisnici() {
         return korisnici;
     }
 
-    public void setKorisnici(ObservableList<String> korisnici) {
+    public void setKorisnici(ObservableList<Korisnik> korisnici) {
         this.korisnici = korisnici;
     }
 
-    public String getTrenutni() {
+    public Korisnik getTrenutni() {
         return trenutni.get();
     }
 
-    public SimpleObjectProperty<String> trenutniProperty() {
+    public SimpleObjectProperty<Korisnik> trenutniProperty() {
         return trenutni;
     }
 
-    public void setTrenutni(String trenutni) {
+    public void setTrenutni(Korisnik trenutni) {
         this.trenutni.set(trenutni);
     }
 }
