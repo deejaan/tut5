@@ -75,4 +75,7 @@ public class Controller implements Initializable {
         korisniciLista.getSelectionModel().selectLast();
 
     }
+    public  void actKraj() {
+        System.exit(0);
+    }
 }
